@@ -8,7 +8,7 @@ class warehouse(models.Model):
     warehouse_update_time = models.DateField()
     
     def __str__(self):
-        return self.warehouse_id
+        return self.warehouse_name
     
 class product(models.Model):
     product_id = models.AutoField(verbose_name="product", primary_key=True, serialize=False, auto_created=True)
@@ -17,7 +17,7 @@ class product(models.Model):
     product_update_time = models.DateField()
     
     def __str__(self):
-        return self.product_id
+        return self.product_name
     
 class transaction(models.Model):
     t_type= (
@@ -31,5 +31,5 @@ class transaction(models.Model):
     transaction_date = models.DateTimeField()
     
     def __str__(self):
-        return self.transaction_id  
+        return str(self.transaction_id)
     
