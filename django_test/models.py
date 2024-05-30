@@ -25,8 +25,8 @@ class transaction(models.Model):
         ('out','out')
     )
     transaction_id = models.AutoField(verbose_name="transaction", primary_key=True, serialize=False, auto_created=True)
-    warehouse = models.OneToOneField(warehouse, on_delete=models.CASCADE)
-    product = models.ManyToManyField(product)
+    warehouse = models.ForeignKey(warehouse, on_delete=models.CASCADE, related_name="warehouses")
+    product = models.ForeignKey(product, on_delete=models.CASCADE, related_name="products")
     transaction_type = models.TextField(max_length=225, choices=t_type)
     transaction_date = models.DateTimeField()
     
